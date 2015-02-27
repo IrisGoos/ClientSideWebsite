@@ -10,6 +10,11 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="css.css">
+        <script src="jquery-2.1.3.js"></script>
+        <script>
+            $(function(){
+            $("#IncludedContent").load("HTML.html");
+        });</script>
     </head>
     <body>
         <div id="wrapper">
@@ -26,93 +31,7 @@ and open the template in the editor.
             </div>
 
             <div id="content">
-                <ul id="TableOfContents">
-                    <li><span style="font-weight:bold">1</span><a href="#Paragraaf_1">Paragraaf 1</a></li>
-                    <li><span style="font-weight:bold">1.1</span><a href="#Subparagraaf_1.1">Subparagraaf 1.1</a></li>
-                    <li><span style="font-weight:bold">1.2</span><a href="#Subparagraaf_1.2">Subparagraaf 1.2</a></li>
-                    <li><span style="font-weight:bold">2</span><a href="#Paragraaf_2">Paragraaf 2</a></li>
-                    <li><span style="font-weight:bold">2.1</span><a href="#Subparagraaf_2.1">Subparagraaf 2.1</a></li>
-                    <li><span style="font-weight:bold">2.2</span><a href="#Subparagraaf_2.2">Subparagraaf 2.2</a></li>
-                    <li><span style="font-weight:bold">3</span><a href="#Paragraaf_3">Paragraaf 3</a></li>
-                    <li><span style="font-weight:bold">3.1</span><a href="#Subparagraaf_3.1">Subparagraaf 3.1</a></li>
-                    <li><span style="font-weight:bold">3.2</span><a href="#Subparagraaf_3.2">Subparagraaf 3.2</a></li>
-                </ul>
-            
-                <div id="text">
-                    <h3><span class="mw-headline" id="Paragraaf_1">Paragraaf 1</span></h3>
-                    <p>
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                    <h4><span class="mw-headline" id="Subparagraaf_1.1">Subaragraaf 1.1</span></h4>
-                    <p>
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                    <h4><span class="mw-headline" id="Subparagraaf_1.2">Subaragraaf 1.2</span></h4>
-                    <p>
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                
-                    <h3><span class="mw-headline" id="Paragraaf_2">Paragraaf 2</span></h3>
-                    <p>
-                    Tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                    <h4><span class="mw-headline" id="Subparagraaf_2.1">Subaragraaf 2.1</span></h4>
-                    <p>
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                    <h4><span class="mw-headline" id="Subparagraaf_2.2">Subaragraaf 2.2</span></h4>
-                    <p>
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                
-                    <h3><span class="mw-headline" id="Paragraaf_3">Paragraaf 3</span></h3>
-                    <p>
-                    Tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                    <h4><span class="mw-headline" id="Subparagraaf_3.1">Subaragraaf 3.1</span></h4>
-                    <p>
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                    <h4><span class="mw-headline" id="Subparagraaf_3.2">Subaragraaf 3.2</span></h4>
-                    <p>
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    tekst
-                    </p>
-                </div>
+                <div id="IncludedContent"></div>
             </div>
 
             <div id="footer">
