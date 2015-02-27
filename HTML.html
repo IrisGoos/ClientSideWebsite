@@ -15,13 +15,13 @@ and open the template in the editor.
     HTML beperkt zich tot het aanklikken van koppelingen, het invullen van tekstvelden en het klikken in afbeeldingen.</p>
 <p>Er zijn inmiddels vele HTML-versies verschenen. W3C, World Wide Web Consortium, heeft een lijst aanbevelingen opgesteld. 
     In deze lijst aanbevelingen staat informatie over de tags, hoe je ze moet gebruiken en welke geldig zijn. 
-    Deze aanbevelingen worden noodzakelijk geacht om verwarring tussen de vele HTML versies en interpretaties te voorkomen.</p><br>
+    Deze aanbevelingen worden noodzakelijk geacht om verwarring tussen de vele HTML versies en interpretaties te voorkomen.</p>
 
 <h4>HTML4 versus HTML5</h4>
 <p>Met HTML5 zijn er nieuwe tags bijgekomen ter structurering van het document. Enkele nieuwe tags zijn &lt;header&gt;, &lt;nav&gt; en &lt;article&gt;. 
     HTML5 zou een verbeterde DOM hebben, hierdoor zouden websites sneller laden. DOM, Document Object Model, is een door het W3C opgestelde standaard. 
     Er was behoefte aan een standaard omdat verschillende browsers aanvankelijk een verschillende benaderingsmethode verkozen voor documenten. 
-    Het belangrijkste verschil tussen HTML4 en HTML5 is de steeds groter wordende splitsing tussen de inhoud en de opmaak van documenten. Zo leunt HTML5 op de opmaaktaal CSS3.</p><br>
+    Het belangrijkste verschil tussen HTML4 en HTML5 is de steeds groter wordende splitsing tussen de inhoud en de opmaak van documenten. Zo leunt HTML5 op de opmaaktaal CSS3.</p>
     
 <h4>Voordelen</h4>
 <p>Iedereen kan een HTML document schrijven. Sterker nog, je hebt er niet eens een speciaal programma voor nodig. Je kunt notepad openen en beginnen te typen. 
@@ -40,7 +40,7 @@ and open the template in the editor.
     Daarnaast ben je als ontwikkelaar vrij. Je hoeft je niet aan de gebruikelijke userinterface-designeisen te formeren van het desbetreffende platform. 
     Je bent vrij om je eigen creativiteit en ideeën te gebruiken.</p>
 <p>Indien je niet werkt met een derde partij is de ontwikkelaar met pushen van updates onafhankelijk van die derde partij. 
-    De gebruiker hoeft niet zelf te updaten, want zodra de ontwikkelaar de updates doorvoert zijn de updates online. Dit zorgt voor zowel de ontwikkelaar als de gebruiker voor meer gemak.</p><br>
+    De gebruiker hoeft niet zelf te updaten, want zodra de ontwikkelaar de updates doorvoert zijn de updates online. Dit zorgt voor zowel de ontwikkelaar als de gebruiker voor meer gemak.</p>
 
 <h4>Nadelen</h4>
 <p>Juist omdat je platform onafhankelijk een app maakt, zijn er een aantal nadelen aan verbonden. Zo kun je speciale functies van een bepaald apparaat niet aanroepen. 
@@ -51,15 +51,16 @@ and open the template in the editor.
 <p>Web apps moeten op dit moment vrijwel altijd met internet zijn verbonden om te werken. Dit wordt gezien als één van de grootste nadelen, er wordt dus hard aan gewerkt dit te veranderen. 
     HTML5 maakt het voor ontwikkelaars mogelijk om data op te slaan in het cachegeheugen van de internetbrowser. Dit kan met behulp van een zogenoemde applicatiecache. 
     Hierbij wordt data van de app in het cachegeheugen opgeslagen, en kan de gebruiker de applicatie offline toch nog bereiken. Hieronder een kleine uitleg:
-    Elke pagina die offline beschikbaar moet zijn moet voorzien zijn van een ‘cache manifest’. In plaats van het bestand te beginnen met &lt;html&gt;, moet de gebruiker verwijzen naar een manifestbestand. Een pagina is dan op de volgende manier opgebouwd:
-&lt;! DOCTYPE HTML&gt;
-&lt;html manifest =”voorbeeld.appcache”&gt;
-&lt;!--hier de relevante code--&gt;
-&lt;/html&gt;
+    Elke pagina die offline beschikbaar moet zijn moet voorzien zijn van een ‘cache manifest’. In plaats van het bestand te beginnen met &lt;html&gt;, moet de gebruiker verwijzen naar een manifestbestand. 
+    Een pagina is dan op de volgende manier opgebouwd:<br>
+    &lt;! DOCTYPE HTML&gt;<br>
+    &lt;html manifest =”voorbeeld.appcache”&gt;<br>
+    &lt;!--hier de relevante code--&gt;<br>
+    &lt;/html&gt;<br>
 Het manifestbestand, hier voorbeeld.appcache, bestaat uit de volgende drie onderdelen:
 <ol>
     <li>CACHE MANIFEST. De programmeur kan deze regel in zijn manifestbestand typen, met eronder alle bestanden die offline beschikbaar moeten zijn. De browser downloadt alle genoemde bestanden naar het cachegeheugen.</li>
-    <li>NETWORK. Alle bestanden die hieronder genoemd worden moeten juist níet gecached worden. Dit is vooral belangrijk bij bestanden die altijd een internetverbinding nodig hebben.</li>
+    <li>NETWORK. Alle bestanden die hieronder genoemd worden moeten juist niet gecached worden. Dit is vooral belangrijk bij bestanden die altijd een internetverbinding nodig hebben.</li>
     <li>FALLBACK. Hierbij wordt het bestand gespecificeerd dat geladen moet worden als een pagina niet gedownload kan worden. Dit bestand wordt dus ook in het cachegeheugen opgeslagen.</li>
 </ol>
 Met behulp van het manifestbestand en het cache manifest kan een HTML5-applicatie dus offline uitgevoerd worden. 
@@ -73,13 +74,28 @@ Echter hebben alleen statische apps helemaal geen internetverbinding nodig. Een 
     Er zijn wel speciale stores voor web apps, zoals de Firefox Marketplace Deze stores zijn echter nog niet erg bekend. 
     De Firefox Marketplace is helemaal afgestemd op het gebruik van HTML, CSS en JavaScript.</p>
 
-Mozilla en Firefox
-Mozilla is een internetgemeenschap die  het handhaven van een geheel innovatief en keuze-onafhankelijk internet als streven heeft. Het is belangrijk dat alles open source is. Hiermee wordt bedoeld dat de broncode vrij beschikbaar en dus gepubliceerd is. Zo kan iedereen er gebruik van maken zonder problemen te krijgen met auteursrechten. Mozilla Firefox, beter bekend als Firefox, is een gratis webbrowser. Firefox wordt door naar schatting ongeveer 20 tot 25% gebruikt als standaardbrowser. </p>
-Firefox OS (met als projectnaam Boot to Gecko B2G) is een door Mozilla ontwikkeld besturingssysteem voor smartphones en tablets. Web apps kunnen direct geïntegreerd worden met de hardware met behulp van JavaScript. LG, Alcatel en Huawei hebben vanaf de eerste helft van 2013 telefoons uitgebracht met dit besturingssysteem. Er is weerstand tegen Firefox OS. Zo blijkt de hardware van de apparaten waar het nu op staat achter te lopen op apparaten met iOS of Android. Daarnaast wordt het gemis van apps als een grote tekortkoming ervaren. De Firefox Marketplace wordt vanuit verschillende kanten een verlaten plek genoemd. Met het relatief kleine aandeel van 0,2% op de OS markt is er voor ontwikkelaars nog geen noodzaak om apps te ontwikkelen voor Firefox OS. </p>
-Conclusie
-Er is een aantal belangrijke nadelen aan het ontwikkelen van een web app. Hij integreert minder goed met de bestaande software op je apparaat dan een native app. Er wordt hard gewerkt aan een universele WebAPI door Mozilla, maar die laat nog even op zicht wachten. Web apps zijn meer van internet afhankelijk dan native apps, dit wordt soms opgelost met het cachegeheugen van de browser. Daarnaast is de betaling voor web apps nog niet optimaal geregeld. </p>
-Mozilla gebruikt slechts HTML, CSS en JavaScript in hun Firefox MarketPlace. Apparaten met het Firefox OS werken nog niet optimaal Zodoende zijn er nog een aantal tekortkomingen zoals het ontbreken van bepaalde apps. Bovendien loopt de hardware van de apparaten achter ten opzichte van apparaten met concurrerende besturingssystemen. </p>
-Daarnaast zijn er genoeg voordelen aan het ontwikkelen van een web app. Zo is HTML een erg semantische taal en voor iedereen toegankelijk. HTML5 en daarmee web apps zijn platform onafhankelijk en kan gebruikt worden op ieder platform. Echter geldt wel dat niet ieder platform elk commando ondersteunt. Omdat je zelf aan de slag gaat zonder je te hoeven conformeren aan de eisen van een systeem kun je je creativiteit de vrije loop laten gaan. </p>
+<h4>Mozilla en Firefox</h4>
+<p>Mozilla is een internetgemeenschap die  het handhaven van een geheel innovatief en keuze-onafhankelijk internet als streven heeft. 
+    Het is belangrijk dat alles open source is. Hiermee wordt bedoeld dat de broncode vrij beschikbaar en dus gepubliceerd is. 
+    Zo kan iedereen er gebruik van maken zonder problemen te krijgen met auteursrechten. Mozilla Firefox, beter bekend als Firefox, is een gratis webbrowser. 
+    Firefox wordt door naar schatting ongeveer 20 tot 25% gebruikt als standaardbrowser.</p>
+<p>Firefox OS (met als projectnaam Boot to Gecko B2G) is een door Mozilla ontwikkeld besturingssysteem voor smartphones en tablets. 
+    Web apps kunnen direct geïntegreerd worden met de hardware met behulp van JavaScript. LG, Alcatel en Huawei hebben vanaf de eerste helft van 2013 telefoons uitgebracht met dit besturingssysteem. 
+    Er is weerstand tegen Firefox OS. Zo blijkt de hardware van de apparaten waar het nu op staat achter te lopen op apparaten met iOS of Android. 
+    Daarnaast wordt het gemis van apps als een grote tekortkoming ervaren. De Firefox Marketplace wordt vanuit verschillende kanten een verlaten plek genoemd. 
+    Met het relatief kleine aandeel van 0,2% op de OS markt is er voor ontwikkelaars nog geen noodzaak om apps te ontwikkelen voor Firefox OS.</p>
+
+<h4>Conclusie</h4>
+<p>Er is een aantal belangrijke nadelen aan het ontwikkelen van een web app. Hij integreert minder goed met de bestaande software op je apparaat dan een native app. 
+    Er wordt hard gewerkt aan een universele WebAPI door Mozilla, maar die laat nog even op zicht wachten. 
+    Web apps zijn meer van internet afhankelijk dan native apps, dit wordt soms opgelost met het cachegeheugen van de browser. 
+    Daarnaast is de betaling voor web apps nog niet optimaal geregeld.</p>
+<p>Mozilla gebruikt slechts HTML, CSS en JavaScript in hun Firefox MarketPlace. 
+    Apparaten met het Firefox OS werken nog niet optimaal zodoende zijn er nog een aantal tekortkomingen zoals het ontbreken van bepaalde apps. 
+    Bovendien loopt de hardware van de apparaten achter ten opzichte van apparaten met concurrerende besturingssystemen.</p>
+<p>Daarnaast zijn er genoeg voordelen aan het ontwikkelen van een web app. Zo is HTML een erg semantische taal en voor iedereen toegankelijk. 
+    HTML5 en daarmee web apps zijn platform onafhankelijk en kan gebruikt worden op ieder platform. Echter geldt wel dat niet ieder platform elk commando ondersteunt. 
+    Omdat je zelf aan de slag gaat zonder je te hoeven conformeren aan de eisen van een systeem kun je je creativiteit de vrije loop laten gaan.</p>
 
 Bronnen
 https://developer.mozilla.org/en-US/Apps/Build/Building_apps_for_Firefox_OS
