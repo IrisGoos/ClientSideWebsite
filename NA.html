@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<h3>Native apps</h3>
+    <ul id="TableOfContents">
+        <li><span style="font-weight:bold">1. </span><a href="#Paragraaf_1">Technieken</a></li>
+        <li><span style="font-weight:bold">2. </span><a href="#Paragraaf_2">Voordelen native apps</a></li>
+        <li><span style="font-weight:bold">3. </span><a href="#Paragraaf_3">Nadelen native apps</a></li>
+    </ul>
+
+<p>Om apps zo natuurlijk mogelijk te integreren in het besturingssysteem kunnen ontwikkelaars zogenoemde ‘native apps’ ontwikkelen. 
+    Dit houdt in dat de app volledig is toegespitst op het besturingssysteem waarin het zich bevindt, in tegenstelling tot HTML5-apps. 
+    De gebruikersomgeving is hetzelfde als die van de standaardapps in het besturingssysteem, en de gebruikersinteractie verloopt volgens het vaste patroon van het besturingssysteem. 
+    Echter, zoals bij elke techniek, zijn er voor- en nadelen aan het ontwerpen van een native app.</p>
+
+<h4><span class="toc" id="Paragraaf_1">Technieken</span></h4>
+<p>Een groot nadeel van het ontwikkelen van een native app is dat de code slechts op &eacute;&eacute;n besturingssysteem is toegespitst, wat natuurlijk tot gevolg heeft dat deze op andere besturingssystemen niet goed werkt. 
+    Men kan de code herschrijven voor andere besturingssystemen, maar ook zogenoemde frameworks gebruiken. Met deze frameworks kan men voor meerdere platformen native apps ontwikkelen met &eacute;&eacute;n en dezelfde code. 
+    Voorbeelden hiervan zijn PhoneGap en Appcelerator Titanium. In deze paragraaf wordt dieper ingegaan op Titanium.</p>
+
+<p>Titanium is, zoals hierboven genoemd, een framework om native apps te ontwikkelen. 
+    Het doel van Titanium is om zoveel mogelijk code te kunnen hergebruiken op verschillende platforms, waarna de code slechts &lsquo;gepolijst&rsquo; hoeft te worden om net gepresenteerd te worden in specifieke besturingssystemen.
+    Titanium bestaat uit verschillende onderdelen:
+<ul>
+    <li>Titanium SDK: de Software Development Kit zorgt ervoor dat de code van de applicatie juist geïnterpreteerd wordt. 
+        De Titanium SDK-tools werken met de SDK-tools van het besturingssysteem, waardoor de app als native app weergegeven wordt.</li>
+    <li>Titanium API: deze API voor JavaScript geeft toegang tot heel veel verschillende componenten waarmee een app ‘native’ ontwikkeld kan worden, 
+    zoals het maken van een knop in de stijl van het besturingssysteem of toegang tot de camera van de telefoon. In detail:
+    Stel dat we een knop willen toevoegen aan een scherm die zowel in Android als in iOS er ‘native’ uit moet zien. 
+    Deze knop moet een scherm openen waarin de gebruiker een tijdwaarde (voor bijvoorbeeld een wekker) kan selecteren en deze waarde kan opslaan met een ‘OK’-knop. 
+    Om dit te realiseren moeten we verschillende componenten uit de Titanium-API aanspreken:
+        <ol>
+            <li>We beginnen met het declareren van een variabele ‘button’. Dit is een Titanium-button: hij ziet er ‘native’ uit. We voegen hem toe aan het scherm:<br>
+                var window = Titanium.UI.createWindow();<br>
+                var button = Titanium.UI.createButton();<br>
+                window.add(knop);<br>
+                createWindow en createButton zijn zogenoemde native methoden: deze methoden cre&euml;ren een native object en een ‘proxy-object’ 
+                (window of button) waarmee we de eigenschappen en methoden van het native object kan aanroepen. Dit kunnen we dus ook bij button doen: <br>
+                button.height = 10;<br>
+                button.width = 200;<br>
+                button.title = ‘Kies tijd’;<br></li>
+            <li>Met een EventListener kunnen we aangeven wat er moet gebeuren als de gebruiker op ‘button’ drukt:<br>
+                button.addEventListener(‘click’, (e) => {<br>
+                this.createPickerWindow();<br>
+                });<br>
+                Wat er nu nog moet gebeuren is duidelijk: we moeten de methode createPickerWindow maken. Dit doen we als volgt:
+            <li>In de methode declareren we eerst de variabelen die we nodig hebben: een zogenoemde ‘picker’ om de tijd mee te selecteren, een ‘view’ om de picker in weer te geven, 
+                en weer een window om de view in weer te geven. De view is belangrijk omdat we hiermee de picker een positie en grootte kunnen geven. Als laatst declareren we nog een ok-knop:<br>
+                createPickerWindow() {<br>
+                var picker = Titanium.UI.createPicker({<br>
+                type: Titanium.UI.PICKER_TYPE_TIME<br>
+                });<br>
+
+                var pickerWindow = Titanium.UI.createWindow({<br>
+                backgroundColor: 'white',<br>
+                layout: 'vertical',<br>
+                height: Titanium.UI.SIZE,<br>
+                width: Titanium.UI.SIZE<br>
+                });<br>
+                var pickerView = Titanium.UI.createView({<br>
+                top: 0,<br>
+                height: Titanium.UI.SIZE,<br>
+                zIndex: 1<br>
+                });<br>
+                var okButton = Titanium.UI.createButton({<br>
+                title: ‘OK’,<br>
+                zIndex: 2<br>
+                });<br>
+                }<br>
+                Zoals te zien is, halen we alle componenten uit de Titanium-API. Deze componenten kunnen dan speciale waarden meekrijgen:<br>
+                <ol>
+                    <li>-‘picker’ krijgt het tijd-type mee: hiermee geeft Titanium aan dat met deze picker een tijd (en niet een datum) geselecteerd kan worden</li>
+                    <li>-van ‘pickerWindow’ wordt de hoogte en breedte automatisch bepaald door Titanium: de window wordt even groot als de ruimte die de picker en de knop innemen. Hiermee kan de ‘native’ look and feel behouden blijven.</li>
+                </ol>
+                Nu we alle componenten tot onze beschikking hebben is het maken van de popup-window een fluitje van een cent:
+	pickerView.add(picker);
+	pickerWindow.add(pickerView);
+	pickerWindow.adD(okButton);
+De ok-knop komt netjes onder de picker te staan: we hebben de picker een hogere ‘zIndex’ meegegeven dan de ok-knop. Aangezien we de popup-window een verticale structuur meegegeven hebben (layout: 'vertical'), weet Titanium dat de ok-knop verticaal onder de picker geplaatst moet worden.
+De laatste stap in het proces is het maken van de EventListener voor de ok-knop, maar dit spreekt tot de verbeelding: men slaat de geselecteerde tijd op in een lokale variabelen en sluit de pickerWindow.
+            </li></ol>
+Bovenstaand voorbeeld is slechts een voorproefje van wat er met Titanium mogelijk is. Het voorbeeld maakt echter wel duidelijk dat Titanium uit één stuk code verschillende interfaces kan opbouwen die passen bij het besturingssysteem van de gebruiker.
+
+Als een Titaniumapplicatie gaat runnen, wordt de Titanium-API in de code in native programmeertaal omgezet. Een JavaScript-interpreter wordt ingezet om de code uit te voeren.
+
+Titanium Studio: met deze software kan men Titanium-apps programmeren en testen, alsmede de Titanium SDK updaten.
+
+Titanium Modules: talloze ‘modules’ zijn ontwikkeld voor Titanium. Dit zijn uitbreidingen op de API van Titanium. Aangezien Titanium een open-sourceproject is, is iedereen vrij om zelf modules voor Titanium te ontwikkelen.
+
+Clouddiensten: Appcelerator, de ontwikkelaar van Titanium, biedt via de cloud aan ontwikkelaars bepaalde statistieken over hun app(s) aan, beschikbaar via de API.</p>
+
+<h4><span class="toc" id="Paragraaf_2">Voordelen native apps</span></h4>
+<p>Het ontwikkelen van een native app brengt duidelijke voordelen met zich mee. Men kan allereerst ten volste gebruik maken van de mogelijkheden die het besturingssysteem biedt. 
+    De app heeft toegang tot native elementen van de telefoon zoals de camera en de microfoon. Ook kunnen native apps via push notifications communiceren met de gebruiker. 
+    Native apps presteren vaak sneller dan HTML5-apps en zijn voorspelbaarder in hun gedrag, wat vooral het gevolg is van dat de app gebruik maakt van de UI van het besturingssysteem. 
+    Dit maakt de drempel om een app te gebruiken vaak lager.</p>
+
+<h4><span class="toc" id="Paragraaf_3">Nadelen native apps</span></h4>
+<p>Een van de grootste nadelen van native apps is dat ze gebonden zijn aan &eacute;&eacute;n besturingssysteem. Met bepaalde methoden, zoals Titanium, 
+    kan men dit probleem omzeilen, maar deze frameworks kunnen nooit 100% van alle functionaliteiten dekken. Redelijk geavanceerde applicaties hebben dan ook platformspecifieke code nodig, 
+    wat de ontwikkeling van de app moeilijker en langduriger maakt. Als een ontwikkelaar ervoor kiest om voor &eacute;&eacute;n besturingssysteem te ontwikkelen heeft hij bovendien twee nadelige opties: 
+    accepteren dat hij slechts een deel van de mobiele gebruikers bereikt of besluiten de app helemaal opnieuw te schrijven voor een ander systeem.
+    Ook is het updaten van een native app gecompliceerder dan bij een HTML5-app: de gebruiker moet de update zelf downloaden en installeren, terwijl HTML5-apps centraal geupdate kunnen worden, 
+    zonder dat de gebruiker hier iets voor hoeft te doen. Bovendien moet de ontwikkelaar voor elk besturingssysteem aparte updates uitbrengen.</p>
