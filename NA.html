@@ -4,15 +4,30 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<html>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="newjavascript.js"></script> 
+    <link type="text/css" rel="stylesheet" href="css.css">
+    <script src="jquery-2.1.3.js"></script>
+    <script>
+        $(function(){
+        $("#IncludedContent").load("index.html");
+    });</script>
+</head>
 
+<body>
 <h3>Native apps</h3>
+<div id="IncludedContent"></div>
     <ul id="TableOfContents">
         <li><span style="font-weight:bold">1. </span><a href="#Paragraaf_1">Technieken</a></li>
         <li><span style="font-weight:bold">2. </span><a href="#Paragraaf_2">Voordelen native apps</a></li>
         <li><span style="font-weight:bold">3. </span><a href="#Paragraaf_3">Nadelen native apps</a></li>
     </ul>
 
-<p>Om apps zo natuurlijk mogelijk te integreren in het besturingssysteem kunnen ontwikkelaars zogenoemde ‘native apps’ ontwikkelen. 
+<p>Om apps zo natuurlijk mogelijk te integreren in het besturingssysteem kunnen ontwikkelaars zogenoemde â€˜native appsâ€™ ontwikkelen. 
     Dit houdt in dat de app volledig is toegespitst op het besturingssysteem waarin het zich bevindt, in tegenstelling tot HTML5-apps. 
     De gebruikersomgeving is hetzelfde als die van de standaardapps in het besturingssysteem, en de gebruikersinteractie verloopt volgens het vaste patroon van het besturingssysteem. 
     Echter, zoals bij elke techniek, zijn er voor- en nadelen aan het ontwerpen van een native app.</p>
@@ -26,29 +41,29 @@ and open the template in the editor.
     Het doel van Titanium is om zoveel mogelijk code te kunnen hergebruiken op verschillende platforms, waarna de code slechts &lsquo;gepolijst&rsquo; hoeft te worden om net gepresenteerd te worden in specifieke besturingssystemen.
     Titanium bestaat uit verschillende onderdelen:
 <ul>
-    <li>Titanium SDK: de Software Development Kit zorgt ervoor dat de code van de applicatie juist geïnterpreteerd wordt. 
+    <li>Titanium SDK: de Software Development Kit zorgt ervoor dat de code van de applicatie juist geÃ¯nterpreteerd wordt. 
         De Titanium SDK-tools werken met de SDK-tools van het besturingssysteem, waardoor de app als native app weergegeven wordt.</li>
-    <li>Titanium API: deze API voor JavaScript geeft toegang tot heel veel verschillende componenten waarmee een app ‘native’ ontwikkeld kan worden, 
+    <li>Titanium API: deze API voor JavaScript geeft toegang tot heel veel verschillende componenten waarmee een app â€˜nativeâ€™ ontwikkeld kan worden, 
     zoals het maken van een knop in de stijl van het besturingssysteem of toegang tot de camera van de telefoon. In detail:
-    Stel dat we een knop willen toevoegen aan een scherm die zowel in Android als in iOS er ‘native’ uit moet zien. 
-    Deze knop moet een scherm openen waarin de gebruiker een tijdwaarde (voor bijvoorbeeld een wekker) kan selecteren en deze waarde kan opslaan met een ‘OK’-knop. 
+    Stel dat we een knop willen toevoegen aan een scherm die zowel in Android als in iOS er â€˜nativeâ€™ uit moet zien. 
+    Deze knop moet een scherm openen waarin de gebruiker een tijdwaarde (voor bijvoorbeeld een wekker) kan selecteren en deze waarde kan opslaan met een â€˜OKâ€™-knop. 
     Om dit te realiseren moeten we verschillende componenten uit de Titanium-API aanspreken:
         <ol>
-            <li>We beginnen met het declareren van een variabele ‘button’. Dit is een Titanium-button: hij ziet er ‘native’ uit. We voegen hem toe aan het scherm:<br>
+            <li>We beginnen met het declareren van een variabele â€˜buttonâ€™. Dit is een Titanium-button: hij ziet er â€˜nativeâ€™ uit. We voegen hem toe aan het scherm:<br>
                 var window = Titanium.UI.createWindow();<br>
                 var button = Titanium.UI.createButton();<br>
                 window.add(knop);<br>
-                createWindow en createButton zijn zogenoemde native methoden: deze methoden cre&euml;ren een native object en een ‘proxy-object’ 
+                createWindow en createButton zijn zogenoemde native methoden: deze methoden cre&euml;ren een native object en een â€˜proxy-objectâ€™ 
                 (window of button) waarmee we de eigenschappen en methoden van het native object kan aanroepen. Dit kunnen we dus ook bij button doen: <br>
                 button.height = 10;<br>
                 button.width = 200;<br>
-                button.title = ‘Kies tijd’;<br></li>
-            <li>Met een EventListener kunnen we aangeven wat er moet gebeuren als de gebruiker op ‘button’ drukt:<br>
-                button.addEventListener(‘click’, (e) => {<br>
+                button.title = â€˜Kies tijdâ€™;<br></li>
+            <li>Met een EventListener kunnen we aangeven wat er moet gebeuren als de gebruiker op â€˜buttonâ€™ drukt:<br>
+                button.addEventListener(â€˜clickâ€™, (e) => {<br>
                 this.createPickerWindow();<br>
                 });<br>
                 Wat er nu nog moet gebeuren is duidelijk: we moeten de methode createPickerWindow maken. Dit doen we als volgt:
-            <li>In de methode declareren we eerst de variabelen die we nodig hebben: een zogenoemde ‘picker’ om de tijd mee te selecteren, een ‘view’ om de picker in weer te geven, 
+            <li>In de methode declareren we eerst de variabelen die we nodig hebben: een zogenoemde â€˜pickerâ€™ om de tijd mee te selecteren, een â€˜viewâ€™ om de picker in weer te geven, 
                 en weer een window om de view in weer te geven. De view is belangrijk omdat we hiermee de picker een positie en grootte kunnen geven. Als laatst declareren we nog een ok-knop:<br>
                 createPickerWindow() {<br>
                 var picker = Titanium.UI.createPicker({<br>
@@ -67,29 +82,29 @@ and open the template in the editor.
                 zIndex: 1<br>
                 });<br>
                 var okButton = Titanium.UI.createButton({<br>
-                title: ‘OK’,<br>
+                title: â€˜OKâ€™,<br>
                 zIndex: 2<br>
                 });<br>
                 }<br>
                 Zoals te zien is, halen we alle componenten uit de Titanium-API. Deze componenten kunnen dan speciale waarden meekrijgen:<br>
                 <ol>
-                    <li>-‘picker’ krijgt het tijd-type mee: hiermee geeft Titanium aan dat met deze picker een tijd (en niet een datum) geselecteerd kan worden</li>
-                    <li>-van ‘pickerWindow’ wordt de hoogte en breedte automatisch bepaald door Titanium: de window wordt even groot als de ruimte die de picker en de knop innemen. Hiermee kan de ‘native’ look and feel behouden blijven.</li>
+                    <li>-â€˜pickerâ€™ krijgt het tijd-type mee: hiermee geeft Titanium aan dat met deze picker een tijd (en niet een datum) geselecteerd kan worden</li>
+                    <li>-van â€˜pickerWindowâ€™ wordt de hoogte en breedte automatisch bepaald door Titanium: de window wordt even groot als de ruimte die de picker en de knop innemen. Hiermee kan de â€˜nativeâ€™ look and feel behouden blijven.</li>
                 </ol>
                 Nu we alle componenten tot onze beschikking hebben is het maken van de popup-window een fluitje van een cent:
 	pickerView.add(picker);
 	pickerWindow.add(pickerView);
 	pickerWindow.adD(okButton);
-De ok-knop komt netjes onder de picker te staan: we hebben de picker een hogere ‘zIndex’ meegegeven dan de ok-knop. Aangezien we de popup-window een verticale structuur meegegeven hebben (layout: 'vertical'), weet Titanium dat de ok-knop verticaal onder de picker geplaatst moet worden.
+De ok-knop komt netjes onder de picker te staan: we hebben de picker een hogere â€˜zIndexâ€™ meegegeven dan de ok-knop. Aangezien we de popup-window een verticale structuur meegegeven hebben (layout: 'vertical'), weet Titanium dat de ok-knop verticaal onder de picker geplaatst moet worden.
 De laatste stap in het proces is het maken van de EventListener voor de ok-knop, maar dit spreekt tot de verbeelding: men slaat de geselecteerde tijd op in een lokale variabelen en sluit de pickerWindow.
             </li></ol>
-Bovenstaand voorbeeld is slechts een voorproefje van wat er met Titanium mogelijk is. Het voorbeeld maakt echter wel duidelijk dat Titanium uit één stuk code verschillende interfaces kan opbouwen die passen bij het besturingssysteem van de gebruiker.
+Bovenstaand voorbeeld is slechts een voorproefje van wat er met Titanium mogelijk is. Het voorbeeld maakt echter wel duidelijk dat Titanium uit Ã©Ã©n stuk code verschillende interfaces kan opbouwen die passen bij het besturingssysteem van de gebruiker.
 
 Als een Titaniumapplicatie gaat runnen, wordt de Titanium-API in de code in native programmeertaal omgezet. Een JavaScript-interpreter wordt ingezet om de code uit te voeren.
 
 Titanium Studio: met deze software kan men Titanium-apps programmeren en testen, alsmede de Titanium SDK updaten.
 
-Titanium Modules: talloze ‘modules’ zijn ontwikkeld voor Titanium. Dit zijn uitbreidingen op de API van Titanium. Aangezien Titanium een open-sourceproject is, is iedereen vrij om zelf modules voor Titanium te ontwikkelen.
+Titanium Modules: talloze â€˜modulesâ€™ zijn ontwikkeld voor Titanium. Dit zijn uitbreidingen op de API van Titanium. Aangezien Titanium een open-sourceproject is, is iedereen vrij om zelf modules voor Titanium te ontwikkelen.
 
 Clouddiensten: Appcelerator, de ontwikkelaar van Titanium, biedt via de cloud aan ontwikkelaars bepaalde statistieken over hun app(s) aan, beschikbaar via de API.</p>
 
@@ -106,3 +121,5 @@ Clouddiensten: Appcelerator, de ontwikkelaar van Titanium, biedt via de cloud aa
     accepteren dat hij slechts een deel van de mobiele gebruikers bereikt of besluiten de app helemaal opnieuw te schrijven voor een ander systeem.
     Ook is het updaten van een native app gecompliceerder dan bij een HTML5-app: de gebruiker moet de update zelf downloaden en installeren, terwijl HTML5-apps centraal geupdate kunnen worden, 
     zonder dat de gebruiker hier iets voor hoeft te doen. Bovendien moet de ontwikkelaar voor elk besturingssysteem aparte updates uitbrengen.</p>
+</body>
+</html>
