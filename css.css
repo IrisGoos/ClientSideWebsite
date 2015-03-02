@@ -123,3 +123,8 @@ a:hover{
     text-decoration-line: underline;
     text-decoration-line: overline;    
 }
+
+#code{
+    font-family: Courier New;
+    margin-left: 50px;
+}
