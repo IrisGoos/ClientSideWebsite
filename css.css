@@ -133,3 +133,12 @@ a:hover{
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+#ButtonBox{
+    text-align: center;
+}
+
+#GraphText{
+    text-align: justify;
+    width: 100%;
+}
