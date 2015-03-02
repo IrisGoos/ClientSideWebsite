@@ -33,6 +33,7 @@ and open the template in the editor.
                                 $("img").click(function(){
                                     var newUrl = url.replace('_q','');
                                     window.open(newUrl);
+                                    preventDefault();
                                 });
                             });
                         }
