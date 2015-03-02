@@ -47,7 +47,7 @@ html,body
     font-size: 10px;
     text-align: center;
     font-family: Verdana;
-    top: 95%;
+    top: 92%;
 }
 
 #content
@@ -80,7 +80,7 @@ input.buttons
 {   background-color: #0066CC;
     color: #BBCCEE;
     border-color: #000000;
-    width: 80%;
+    width: 85%;
     height: 35px;
     font-family: Verdana;
     padding: 10px;
@@ -107,6 +107,17 @@ input.button{
     padding: 10px;
     font-weight: bold;
 }
+input.button:hover{
+    background-color: #BBCCEE;
+    color: #0066CC;
+}
+
+input.button:active{
+    border: #DDDDDD;
+    background-color: #DDDDDD;
+    font-weight: bolder;
+    color: #0066CC;
+}
 
 ul
 {   list-style-type: none;
@@ -117,7 +128,7 @@ content.ul{
 }
 
 a{
-    color: #777777;
+    color: #222222;
     text-decoration-line: none;
 }
 
@@ -127,7 +138,13 @@ a:hover{
     text-decoration-line: overline;    
 }
 
-#code{
+
+a:visited{
+    color: #777777;
+    text-decoration-line: underline;
+}
+
+p.code{
     font-family: Courier New;
     margin-left: 50px;
     margin-top: 0px;
@@ -141,4 +158,9 @@ a:hover{
 #GraphText{
     text-align: justify;
     width: 100%;
+}
+
+ul.tree{
+    padding: 10px;
+    margin: 10px;
 }

@@ -57,47 +57,47 @@ and open the template in the editor.
                     Om dit te realiseren moeten we verschillende componenten uit de Titanium-API aanspreken: </p>
                         <ol>
                             <li>We beginnen met het declareren van een variabele &lsquo;button&rsquo;. Dit is een Titanium-button: hij ziet er &lsquo;native&rsquo; uit. We voegen hem toe aan het scherm:<br>
-                                <br><p id="code">var window = Titanium.UI.createWindow();<br>
+                                <br><p class="code">var window = Titanium.UI.createWindow();<br>
                             var button = Titanium.UI.createButton();<br>
                             window.add(knop);</p><br>
                             createWindow en createButton zijn zogenoemde native methoden: deze methoden cre&euml;ren een native object en een &lsquo;proxy-object&rsquo; 
                             (window of button) waarmee we de eigenschappen en methoden van het native object kan aanroepen. Dit kunnen we dus ook bij button doen: <br>
-                            <br><p id="code">button.height = 10;<br>
+                            <br><p class="code">button.height = 10;<br>
                             button.width = 200;<br>
-                            button.title = &lsquo;kies tijd&rsquo;;</p></li><br>
+                            button.title = &lsquo;kies tijd&rsquo;;</p></li>
                             <li>Met een EventListener kunnen we aangeven wat er moet gebeuren als de gebruiker op &lsquo;button&rsquo; drukt:<br>
-                                <br><p id="code">button.addEventListener(&lsquo;click&rsquo;, (e) => {</p>
-                                <p id="code" style=" text-indent: 2em;">this.createPickerWindow();</p>
-                                <p id="code">});</p><br>
+                                <br><p class="code">button.addEventListener(&lsquo;click&rsquo;, (e) => {</p>
+                                <p class="code" style=" text-indent: 2em;">this.createPickerWindow();</p>
+                                <p class="code">});</p><br>
                             Wat er nu nog moet gebeuren is duidelijk: we moeten de methode createPickerWindow maken. Dit doen we als volgt:</li>
-                            <br><li>In de methode declareren we eerst de variabelen die we nodig hebben: een zogenoemde &lsquo;picker&rsquo; om de tijd mee te selecteren, een &lsquo;view&rsquo; om de picker in weer te geven, 
+                            <li>In de methode declareren we eerst de variabelen die we nodig hebben: een zogenoemde &lsquo;picker&rsquo; om de tijd mee te selecteren, een &lsquo;view&rsquo; om de picker in weer te geven, 
                             en weer een window om de view in weer te geven. De view is belangrijk omdat we hiermee de picker een positie en grootte kunnen geven. Als laatst declareren we nog een ok-knop:<br>
-                            <br><p id="code">createPickerWindow() {</p>
-                            <p id="code" style=" text-indent: 2em;">var picker = Titanium.UI.createPicker({</p>
-                            <p id="code" style=" text-indent: 4em;">type: Titanium.UI.PICKER_TYPE_TIME</p>
-                            <p id="code" style=" text-indent: 2em;">});</p>
-                            <p id="code" style=" text-indent: 2em;">var pickerWindow = Titanium.UI.createWindow({</p>
-                            <p id="code" style=" text-indent: 4em;">backgroundColor: &lsquo;white&rsquo;,</p>
-                            <p id="code" style=" text-indent: 4em;">layout: &lsquo;vertical&rsquo;,</p>
-                            <p id="code" style=" text-indent: 4em;">height: Titanium.UI.SIZE,</p>
-                            <p id="code" style=" text-indent: 4em;">width: Titanium.UI.SIZE</p>
-                            <p id="code" style=" text-indent: 2em;">});</p>
-                            <p id="code" style=" text-indent: 2em;">var pickerView = Titanium.UI.createView({</p>
-                            <p id="code" style=" text-indent: 4em;">top: 0,</p>
-                            <p id="code" style=" text-indent: 4em;">height: Titanium.UI.SIZE,</p>
-                            <p id="code" style=" text-indent: 4em;">zIndex: 1</p>
-                            <p id="code" style=" text-indent: 2em;">});</p>
-                            <p id="code" style=" text-indent: 2em;">var okButton = Titanium.UI.createButton({</p>
-                            <p id="code" style=" text-indent: 4em;">title: &lsquo;OK&rsquo;,</p>
-                            <p id="code" style=" text-indent: 4em;">zIndex: 2</p>
-                            <p id="code" style=" text-indent: 2em;">});</p>
-                            <p id="code">}</p><br></p>
+                            <br><p class="code">createPickerWindow() {</p>
+                            <p class="code" style=" text-indent: 2em;">var picker = Titanium.UI.createPicker({</p>
+                            <p class="code" style=" text-indent: 4em;">type: Titanium.UI.PICKER_TYPE_TIME</p>
+                            <p class="code" style=" text-indent: 2em;">});</p>
+                            <p class="code" style=" text-indent: 2em;">var pickerWindow = Titanium.UI.createWindow({</p>
+                            <p class="code" style=" text-indent: 4em;">backgroundColor: &lsquo;white&rsquo;,</p>
+                            <p class="code" style=" text-indent: 4em;">layout: &lsquo;vertical&rsquo;,</p>
+                            <p class="code" style=" text-indent: 4em;">height: Titanium.UI.SIZE,</p>
+                            <p class="code" style=" text-indent: 4em;">width: Titanium.UI.SIZE</p>
+                            <p class="code" style=" text-indent: 2em;">});</p>
+                            <p class="code" style=" text-indent: 2em;">var pickerView = Titanium.UI.createView({</p>
+                            <p class="code" style=" text-indent: 4em;">top: 0,</p>
+                            <p class="code" style=" text-indent: 4em;">height: Titanium.UI.SIZE,</p>
+                            <p class="code" style=" text-indent: 4em;">zIndex: 1</p>
+                            <p class="code" style=" text-indent: 2em;">});</p>
+                            <p class="code" style=" text-indent: 2em;">var okButton = Titanium.UI.createButton({</p>
+                            <p class="code" style=" text-indent: 4em;">title: &lsquo;OK&rsquo;,</p>
+                            <p class="code" style=" text-indent: 4em;">zIndex: 2</p>
+                            <p class="code" style=" text-indent: 2em;">});</p>
+                            <p class="code">}</p><br>
                             Zoals te zien is, halen we alle componenten uit de Titanium-API. Deze componenten kunnen dan speciale waarden meekrijgen:<br>
                             <br>
                                 -&lsquo;picker&rsquo; krijgt het tijd-type mee: hiermee geeft Titanium aan dat met deze picker een tijd (en niet een datum) geselecteerd kan worden<br>
                                 -van &lsquo;pickerWindow&rsquo; wordt de hoogte en breedte automatisch bepaald door Titanium: de window wordt even groot als de ruimte die de picker en de knop innemen. Hiermee kan de &lsquo;native&rsquo; look and feel behouden blijven.<br>
                             Nu we alle componenten tot onze beschikking hebben is het maken van de popup-window een fluitje van een cent:<br>
-                            <br><p id="code">pickerView.add(picker);<br>
+                            <br><p class="code">pickerView.add(picker);<br>
                             pickerWindow.add(pickerView);<br>
                             pickerWindow.adD(okButton);<br></p><br>
                             De ok-knop komt netjes onder de picker te staan: we hebben de picker een hogere &lsquo;z-Index&rsquo; meegegeven dan de ok-knop. Aangezien we de popup-window een verticale structuur meegegeven hebben (layout: &lsquo;vertical&rsquo;), weet Titanium dat de ok-knop verticaal onder de picker geplaatst moet worden.
