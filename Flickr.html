@@ -39,9 +39,13 @@ and open the template in the editor.
                     });
                 });
             });
-  </script>
+            $(function(){
+            $("#IncludedContent").load("index.html");
+        });
+    </script>
     </head>
     <body>
+        <div id="IncludedContent"></div>
         <div>
             <h1>Fickr-zoekmachine</h1>
                 <p>
