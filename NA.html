@@ -43,70 +43,69 @@ and open the template in the editor.
             Het doel van Titanium is om zoveel mogelijk code te kunnen hergebruiken op verschillende platforms, waarna de code slechts &lsquo;gepolijst&rsquo; hoeft te worden om net gepresenteerd te worden in specifieke besturingssystemen.
             Titanium bestaat uit verschillende onderdelen:</p>
                 <ul>
-                    <li>Titanium SDK: de Software Development Kit zorgt ervoor dat de code van de applicatie juist geïnterpreteerd wordt. 
+                    <li><b>Titanium SDK:</b> de Software Development Kit zorgt ervoor dat de code van de applicatie juist geïnterpreteerd wordt. 
                     De Titanium SDK-tools werken met de SDK-tools van het besturingssysteem, waardoor de app als native app weergegeven wordt.</li>
-                    <li>Titanium API: deze API voor JavaScript geeft toegang tot heel veel verschillende componenten waarmee een app &lsquo;native&rsquo; ontwikkeld kan worden, 
-                    zoals het maken van een knop in de stijl van het besturingssysteem of toegang tot de camera van de telefoon. In detail:
-                    Stel dat we een knop willen toevoegen aan een scherm die zowel in Android als in iOS er &lsquo;native&rsquo; uit moet zien. 
+                    <li><b>Titanium API:</b> deze API voor JavaScript geeft toegang tot heel veel verschillende componenten waarmee een app &lsquo;native&rsquo; ontwikkeld kan worden, 
+                    zoals het maken van een knop in de stijl van het besturingssysteem of toegang tot de camera van de telefoon. Dit word later verder toegelicht.
+                    <li><b>Titanium Studio:</b> met deze software kan men Titanium-apps programmeren en testen, alsmede de Titanium SDK updaten.</li>
+                    <li><b>Titanium Modules:</b> talloze &lsquo;modules&rsquo; zijn ontwikkeld voor Titanium. Dit zijn uitbreidingen op de API van Titanium. 
+                    Aangezien Titanium een open-sourceproject is, is iedereen vrij om zelf modules voor Titanium te ontwikkelen.</li>
+                    <li><b>Clouddiensten:</b> Appcelerator, de ontwikkelaar van Titanium, biedt via de cloud aan ontwikkelaars bepaalde statistieken over hun app(s) aan, beschikbaar via de API.</li>
+                </ul>
+            <p>Door de Titanium API aan te roepen kunnen we dus native componenten voor meerdere besturingssystemen ontwikkelen. Stel dat we een knop willen toevoegen aan een scherm die zowel in Android als in iOS er &lsquo;native&rsquo; uit moet zien. 
                     Deze knop moet een scherm openen waarin de gebruiker een tijdwaarde (voor bijvoorbeeld een wekker) kan selecteren en deze waarde kan opslaan met een ‘OK’-knop. 
-                    Om dit te realiseren moeten we verschillende componenten uit de Titanium-API aanspreken:
+                    Om dit te realiseren moeten we verschillende componenten uit de Titanium-API aanspreken: </p>
                         <ol>
                             <li>We beginnen met het declareren van een variabele &lsquo;button&rsquo;. Dit is een Titanium-button: hij ziet er &lsquo;native&rsquo; uit. We voegen hem toe aan het scherm:<br>
-                            var window = Titanium.UI.createWindow();<br>
+                                <br><p id="code">var window = Titanium.UI.createWindow();<br>
                             var button = Titanium.UI.createButton();<br>
-                            window.add(knop);<br>
+                            window.add(knop);</p><br>
                             createWindow en createButton zijn zogenoemde native methoden: deze methoden cre&euml;ren een native object en een &lsquo;proxy-object&rsquo; 
                             (window of button) waarmee we de eigenschappen en methoden van het native object kan aanroepen. Dit kunnen we dus ook bij button doen: <br>
-                            button.height = 10;<br>
+                            <br><p id="code">button.height = 10;<br>
                             button.width = 200;<br>
-                            button.title = &lsquo;kies tijd&rsquo;;<br></li>
+                            button.title = &lsquo;kies tijd&rsquo;;</p></li><br>
                             <li>Met een EventListener kunnen we aangeven wat er moet gebeuren als de gebruiker op &lsquo;button&rsquo; drukt:<br>
-                            button.addEventListener(&lsquo;click&rsquo;, (e) => {<br>
-                            this.createPickerWindow();<br>
-                            });<br>
+                                <br><p id="code">button.addEventListener(&lsquo;click&rsquo;, (e) => {</p>
+                                <p id="code" style=" text-indent: 2em;">this.createPickerWindow();</p>
+                                <p id="code">});</p><br>
                             Wat er nu nog moet gebeuren is duidelijk: we moeten de methode createPickerWindow maken. Dit doen we als volgt:</li>
-                            <li>In de methode declareren we eerst de variabelen die we nodig hebben: een zogenoemde &lsquo;picker&rsquo; om de tijd mee te selecteren, een &lsquo;view&rsquo; om de picker in weer te geven, 
+                            <br><li>In de methode declareren we eerst de variabelen die we nodig hebben: een zogenoemde &lsquo;picker&rsquo; om de tijd mee te selecteren, een &lsquo;view&rsquo; om de picker in weer te geven, 
                             en weer een window om de view in weer te geven. De view is belangrijk omdat we hiermee de picker een positie en grootte kunnen geven. Als laatst declareren we nog een ok-knop:<br>
-                            createPickerWindow() {<br>
-                            var picker = Titanium.UI.createPicker({<br>
-                            type: Titanium.UI.PICKER_TYPE_TIME<br>
-                            });<br>
-                            var pickerWindow = Titanium.UI.createWindow({<br>
-                            backgroundColor: &lsquo;white&rsquo;,<br>
-                            layout: &lsquo;vertical&rsquo;,<br>
-                            height: Titanium.UI.SIZE,<br>
-                            width: Titanium.UI.SIZE<br>
-                            });<br>
-                            var pickerView = Titanium.UI.createView({<br>
-                            top: 0,<br>
-                            height: Titanium.UI.SIZE,<br>
-                            zIndex: 1<br>
-                            });<br>
-                            var okButton = Titanium.UI.createButton({<br>
-                            title: &lsquo;OK&rsquo;,<br>
-                            zIndex: 2<br>
-                            });<br>
-                            }<br>
+                            <br><p id="code">createPickerWindow() {</p>
+                            <p id="code" style=" text-indent: 2em;">var picker = Titanium.UI.createPicker({</p>
+                            <p id="code" style=" text-indent: 4em;">type: Titanium.UI.PICKER_TYPE_TIME</p>
+                            <p id="code" style=" text-indent: 2em;">});</p>
+                            <p id="code" style=" text-indent: 2em;">var pickerWindow = Titanium.UI.createWindow({</p>
+                            <p id="code" style=" text-indent: 4em;">backgroundColor: &lsquo;white&rsquo;,</p>
+                            <p id="code" style=" text-indent: 4em;">layout: &lsquo;vertical&rsquo;,</p>
+                            <p id="code" style=" text-indent: 4em;">height: Titanium.UI.SIZE,</p>
+                            <p id="code" style=" text-indent: 4em;">width: Titanium.UI.SIZE</p>
+                            <p id="code" style=" text-indent: 2em;">});</p>
+                            <p id="code" style=" text-indent: 2em;">var pickerView = Titanium.UI.createView({</p>
+                            <p id="code" style=" text-indent: 4em;">top: 0,</p>
+                            <p id="code" style=" text-indent: 4em;">height: Titanium.UI.SIZE,</p>
+                            <p id="code" style=" text-indent: 4em;">zIndex: 1</p>
+                            <p id="code" style=" text-indent: 2em;">});</p>
+                            <p id="code" style=" text-indent: 2em;">var okButton = Titanium.UI.createButton({</p>
+                            <p id="code" style=" text-indent: 4em;">title: &lsquo;OK&rsquo;,</p>
+                            <p id="code" style=" text-indent: 4em;">zIndex: 2</p>
+                            <p id="code" style=" text-indent: 2em;">});</p>
+                            <p id="code">}</p><br></p>
                             Zoals te zien is, halen we alle componenten uit de Titanium-API. Deze componenten kunnen dan speciale waarden meekrijgen:<br>
-                                <ol>
-                                    <li>-&lsquo;picker&rsquo; krijgt het tijd-type mee: hiermee geeft Titanium aan dat met deze picker een tijd (en niet een datum) geselecteerd kan worden</li>
-                                    <li>-van &lsquo;pickerWindow&rsquo; wordt de hoogte en breedte automatisch bepaald door Titanium: de window wordt even groot als de ruimte die de picker en de knop innemen. Hiermee kan de &lsquo;native&rsquo; look and feel behouden blijven.</li>
-                                </ol>
+                            <br>
+                                -&lsquo;picker&rsquo; krijgt het tijd-type mee: hiermee geeft Titanium aan dat met deze picker een tijd (en niet een datum) geselecteerd kan worden<br>
+                                -van &lsquo;pickerWindow&rsquo; wordt de hoogte en breedte automatisch bepaald door Titanium: de window wordt even groot als de ruimte die de picker en de knop innemen. Hiermee kan de &lsquo;native&rsquo; look and feel behouden blijven.<br>
                             Nu we alle componenten tot onze beschikking hebben is het maken van de popup-window een fluitje van een cent:<br>
-                            pickerView.add(picker);<br>
+                            <br><p id="code">pickerView.add(picker);<br>
                             pickerWindow.add(pickerView);<br>
-                            pickerWindow.adD(okButton);<br>
+                            pickerWindow.adD(okButton);<br></p><br>
                             De ok-knop komt netjes onder de picker te staan: we hebben de picker een hogere &lsquo;z-Index&rsquo; meegegeven dan de ok-knop. Aangezien we de popup-window een verticale structuur meegegeven hebben (layout: &lsquo;vertical&rsquo;), weet Titanium dat de ok-knop verticaal onder de picker geplaatst moet worden.
                             De laatste stap in het proces is het maken van de EventListener voor de ok-knop, maar dit spreekt tot de verbeelding: men slaat de geselecteerde tijd op in een lokale variabelen en sluit de pickerWindow.</li>
                         </ol>
-                    Bovenstaand voorbeeld is slechts een voorproefje van wat er met Titanium mogelijk is. Het voorbeeld maakt echter wel duidelijk dat Titanium uit &eacute;&eacute;n stuk code verschillende interfaces
+                    <p>Bovenstaand voorbeeld is slechts een voorproefje van wat er met Titanium mogelijk is. Het voorbeeld maakt echter wel duidelijk dat Titanium uit &eacute;&eacute;n stuk code verschillende interfaces
                     kan opbouwen die passen bij het besturingssysteem van de gebruiker. Als een Titaniumapplicatie gaat runnen, wordt de Titanium-API in de code in native programmeertaal omgezet. 
-                    Een JavaScript-interpreter wordt ingezet om de code uit te voeren.</li>
-                    <li>Titanium Studio: met deze software kan men Titanium-apps programmeren en testen, alsmede de Titanium SDK updaten.</li>
-                    <li>Titanium Modules: talloze &lsquo;modules&rsquo; zijn ontwikkeld voor Titanium. Dit zijn uitbreidingen op de API van Titanium. 
-                    Aangezien Titanium een open-sourceproject is, is iedereen vrij om zelf modules voor Titanium te ontwikkelen.</li>
-                    <li>Clouddiensten: Appcelerator, de ontwikkelaar van Titanium, biedt via de cloud aan ontwikkelaars bepaalde statistieken over hun app(s) aan, beschikbaar via de API.</li>
-                </ul>
+                    Een JavaScript-interpreter wordt ingezet om de code uit te voeren.</p>
     
         <h4><span class="toc" id="Paragraaf_2">Voordelen native apps</span></h4>
             <p>Het ontwikkelen van een native app brengt duidelijke voordelen met zich mee. Men kan allereerst ten volste gebruik maken van de mogelijkheden die het besturingssysteem biedt. 
