@@ -14,6 +14,11 @@ and open the template in the editor.
         <script src="jquery.flot.js"></script>
         <script src="jquery.flot.pie.js"></script>
         <script type="text/javascript">
+        <script>
+            $(function(){
+            $("#IncludedContent").load("index.html");
+        });</script>
+        <script>
         var nativeColor = "#FF0D00";
         var webColor = "#007CFF";
         var dataKind = "dataSetOverview";
@@ -107,14 +112,18 @@ and open the template in the editor.
         </script>
     </head>
     <body>
+        <div id="IncludedContent"></div>
+        <div id="content">
         <div style="width:auto;height:auto"><div id="Graph2013" style="width:500px;height:500px;float:left"></div><div id="Graph2014" style="width:500px;height:500px;float:right"></div></div>
-        <div id="ButtonBox" style="width:auto;height:auto"><input id="Button" type="button" value="Details"></div>
+        <div id="ButtonBox" style="width:auto;height:auto"><input id="Button" type="button" value="Details"/></div>
         <div>Bovenstaande cirkeldiagrammen geven weer welk aandeel native apps en webapplicaties hadden in het mobiele applicatiegebruik van mensen in de VS.
         Het linkerdiagram bevat data uit 2013, het rechterdiagram uit 2014. Zoals men kan zien is het aandeel van webbrowsers, en dus ook webapplicates, nog
         erg beperkt in het mobiele landschap. Het aandeel van webapplicaties is zelfs gekrompen in 2014. Aangezien browsers ook worden gebruikt om
-        'gewone', niet voor mobiele apparaten, ontworpen websites te bereiken, is het aandeel van webapplicaties nog kleiner dan die van browsers in het
-        algemeen.<br>Door op de knop 'details' te drukken kan
+        &lsquo;gewone&rsquo;, niet voor mobiele apparaten, ontworpen websites te bereiken, is het aandeel van webapplicaties nog kleiner dan die van browsers in het
+        algemeen.<br>
+        Door op de knop &lsquo;details&rsquo; te drukken kan
         men meer in detail zien hoe de appmarkt is opgedeeld. Native applicaties zijn onderverdeeld in specifieke, grote apps en algemene categorieën.
         Voor de webbrowsers is te zien hoeveel de grootste browsers worden gebruikt in de VS.</div>
+        </div>
     </body>
 </html>

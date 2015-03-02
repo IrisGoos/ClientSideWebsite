@@ -29,7 +29,7 @@ and open the template in the editor.
                                 var secret = elm.attr('secret');
                                 var title = elm.attr('title');
                                 var url = 'https://farm'+farmid+'.staticflickr.com/'+serverid+'/'+id+'_'+secret+'_q.jpg';
-                                $('#resp').append('<img src ="'+ url + '" alt="'+ title +'">');
+                                $('#resp').append('<img src ="'+ url + '" alt="'+ title +'"/>');
                                 $("img").click(function(){
                                     var newUrl = url.replace('_q','');
                                     window.open(newUrl);
@@ -47,17 +47,17 @@ and open the template in the editor.
     <body>
         <div id="IncludedContent"></div>
         <div id="content">
-            <h1>Fickr-zoekmachine</h1>
-                <p>
+            <div>
+            <h3>Fickr-zoekmachine</h3>
                     <p>Op welk trefwoord wil je foto's zoeken?</p>
                         <input id="Box" type="text">
                         <input id="Button" title="Laat zien" type="button" value="Laat zien">
-                </p>
         </div>
         <div>
-            <h1 id="h02">Resultaten</h1>
+            <h3 id="h02">Resultaten</h3>
             <p>Klik op een afbeelding om het origineel te zien.</p>
         </div>
         <div id="resp"></div><br />
+        </div>
     </body>
 </html>
