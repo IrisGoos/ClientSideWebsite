@@ -66,7 +66,7 @@ and open the template in the editor.
             { label: "Nieuws", data: data2014[8][1], color: nativeColor },
             { label: "Overige", data: data2014[9][1], color: nativeColor },
             { label: "Safari", data: data2014[10][1], color: webColor },
-            { label: "Google-browers (Chrome)", data: data2014[11][1], color: webColor },
+            { label: "Google-browers", data: data2014[11][1], color: webColor },
             { label: "Overige browsers", data: data2014[12][1], color: webColor }
         ];
         function labelFormatter(label, series) {
@@ -100,7 +100,7 @@ and open the template in the editor.
                     $.plot($("#Graph2013"), dataSet2013Details, options);
                     $.plot($("#Graph2014"), dataSet2014Details, options);
                     dataKind = "dataSetDetails";
-                    $("#Button").prop('value', 'Overview');
+                    $("#Button").prop('value', 'Gegroepeerd');
                 } else {
                     $.plot($("#Graph2013"), dataSet2013Overview, options);
                     $.plot($("#Graph2014"), dataSet2014Overview, options);
@@ -114,16 +114,17 @@ and open the template in the editor.
     <body>
         <div id="IncludedContent"></div>
         <div id="content">
-        <div style="width:auto;height:auto"><div id="Graph2013" style="width:500px;height:500px;float:left"></div><div id="Graph2014" style="width:500px;height:500px;float:right"></div></div>
-        <div><p>Bovenstaande cirkeldiagrammen geven weer welk aandeel native apps en webapplicaties hadden in het mobiele applicatiegebruik van mensen in de VS.
+        <div><div style="float:left"><h3>2013</h3></div><div style="float:right"><h3>2014</h3></div></div>
+        <div id="Graph2013" style="width:60vh;height:60vh;float:left"></div><div id="Graph2014" style="width:60vh;height:60vh;float:right"></div>
+        <div id="ButtonBox"><input id="Button" type="button" class="button" value="Details"/></div>
+        <div id="GraphText"><p>Bovenstaande cirkeldiagrammen geven weer welk aandeel native apps en webapplicaties hadden in het mobiele applicatiegebruik van mensen in de VS.
         Het linkerdiagram bevat data uit 2013, het rechterdiagram uit 2014. Zoals men kan zien is het aandeel van webbrowsers, en dus ook webapplicates, nog
         erg beperkt in het mobiele landschap. Het aandeel van webapplicaties is zelfs gekrompen in 2014. Aangezien browsers ook worden gebruikt om
         &lsquo;gewone&rsquo;, niet voor mobiele apparaten, ontworpen websites te bereiken, is het aandeel van webapplicaties nog kleiner dan die van browsers in het
-        algemeen.<br>
+        algemeen.<br><br>
         Door op de knop &lsquo;details&rsquo; te drukken kan
         men meer in detail zien hoe de appmarkt is opgedeeld. Native applicaties zijn onderverdeeld in specifieke, grote apps en algemene categorieën.
         Voor de webbrowsers is te zien hoeveel de grootste browsers worden gebruikt in de VS.</p></div>
-        <div id="ButtonBox"><input id="Button" type="button" class="button" value="Details"/></div>
         </div>
     </body>
 </html>
