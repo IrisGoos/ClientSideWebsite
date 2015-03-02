@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Grafiek</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="css.css">
+        <script src="jquery-2.1.3.js"></script>
+        <script src="jquery.flot.js"></script>
+        <script src="jquery.flot.pie.js"></script>
+        <script type="text/javascript">
+        var nativeColor = "#FF0D00";
+        var webColor = "#007CFF";
+        var dataKind = "dataSetOverview";
+        var data2013 = [[1,32],[1,18],[1,8],[1,8],[1,6],[1,2],[1,2],[1,6],[2,12],[2,4],[2,2]];
+        var data2014 = [[1,32],[1,17],[1,1.5],[1,9.5],[1,4],[1,4],[1,8],[1,4],[1,3],[1,3],[2,7],[2,5],[2,2]];
+        function sumData(data, a){
+            var sum = 0;
+            for (i = 0; i < data.length; i++){
+                if(data[i][0]===a){
+                    sum = sum + data[i][1];
+                }
+            }
+            return sum;
+        }
+        var dataSet2013Overview = [
+            { label: "Native Apps", data: sumData(data2013, 1), color: nativeColor },
+            { label: "Webapplicaties", data: sumData(data2013, 2), color: webColor },
+        ];
+        var dataSet2014Overview = [
+            { label: "Native Apps", data: sumData(data2014, 1), color: nativeColor },
+            { label: "Webapplicaties", data: sumData(data2014, 2), color: webColor },
+        ];
+        var dataSet2013Details = [
+            { label: "Games", data: data2013[0][1], color: nativeColor },
+            { label: "Facebook", data: data2013[1][1], color: nativeColor },
+            { label: "Entertainment", data: data2013[2][1], color: nativeColor },
+            { label: "Hulpprogramma", data: data2013[3][1], color: nativeColor },
+            { label: "Sociaal Netwerk", data: data2013[4][1], color: nativeColor },
+            { label: "Nieuws", data: data2013[5][1], color: nativeColor },
+            { label: "Productiviteit", data: data2013[6][1], color: nativeColor },
+            { label: "Overige", data: data2013[7][1], color: nativeColor },
+            { label: "Safari", data: data2013[8][1], color: webColor },
+            { label: "Androidbrowser", data: data2013[9][1], color: webColor },
+            { label: "Opera Mini", data: data2013[10][1], color: webColor }
+        ];
+        var dataSet2014Details = [
+            { label: "Games", data: data2014[0][1], color: nativeColor },
+            { label: "Facebook", data: data2014[1][1], color: nativeColor },
+            { label: "Twitter", data: data2014[2][1], color: nativeColor },
+            { label: "Overige messagingapps", data: data2014[3][1], color: nativeColor },
+            { label: "YouTube", data: data2014[4][1], color: nativeColor },
+            { label: "Entertainment", data: data2014[5][1], color: nativeColor },
+            { label: "Hulpprogramma", data: data2014[6][1], color: nativeColor },
+            { label: "Productiviteit", data: data2014[7][1], color: nativeColor },
+            { label: "Nieuws", data: data2014[8][1], color: nativeColor },
+            { label: "Overige", data: data2014[9][1], color: nativeColor },
+            { label: "Safari", data: data2014[10][1], color: webColor },
+            { label: "Google-browers (Chrome)", data: data2014[11][1], color: webColor },
+            { label: "Overige browsers", data: data2014[12][1], color: webColor }
+        ];
+        function labelFormatter(label, series) {
+            return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+        }
+        var options = {
+            series: {
+                pie: {
+                    show: true,
+                    innerRadius: 0.5,
+                    label: {
+                        show: true,
+                        radius: 3/4,
+                        formatter: labelFormatter,
+                        background: {
+                            opacity: 0.5
+                        }
+                    }
+                }
+            },
+            legend: {
+                show: false
+            }
+        };
+        
+        $(document).ready(function () {
+            $.plot($("#Graph2013"), dataSet2013Overview, options);
+            $.plot($("#Graph2014"), dataSet2014Overview, options);
+            $('#Button').click(function() {
+                if(dataKind==="dataSetOverview"){
+                    $.plot($("#Graph2013"), dataSet2013Details, options);
+                    $.plot($("#Graph2014"), dataSet2014Details, options);
+                    dataKind = "dataSetDetails";
+                    $("#Button").prop('value', 'Overview');
+                } else {
+                    $.plot($("#Graph2013"), dataSet2013Overview, options);
+                    $.plot($("#Graph2014"), dataSet2014Overview, options);
+                    dataKind = "dataSetOverview";
+                    $("#Button").prop('value', 'Details');
+                }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div style="width:auto;height:auto"><div id="Graph2013" style="width:500px;height:500px;float:left"></div><div id="Graph2014" style="width:500px;height:500px;float:right"></div></div>
+        <div id="ButtonBox" style="width:auto;height:auto"><input id="Button" type="button" value="Details"></div>
+    </body>
+</html>
