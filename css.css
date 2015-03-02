@@ -21,7 +21,7 @@ html,body
 #header
 {   font-family: Verdana;
     text-align: center;
-    height: 150px;
+    height: 18%;
     padding: 10px;
     background-image: url("Achtergrond.jpg");
     background-color: #000000;
@@ -38,6 +38,18 @@ html,body
     font-family: Verdana;
 }
 
+#footer
+{   text-align: left;
+    width: 15%;
+    position: fixed;
+    height: 100%;
+    padding-top: 10px;
+    font-size: 10px;
+    text-align: center;
+    font-family: Verdana;
+    top: 95%;
+}
+
 #content
 {   font-family: Verdana;
     overflow: auto;
@@ -50,16 +62,7 @@ html,body
     left: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    height: auto;
-}
-
-#footer
-{   margin-top: -20px;
-    width: 2000px;
-    text-align: center;
-    background-image: url("Achtergrond.jpg");
-    background-color: #000000;
-    clear: both;
+    height: 77%;
 }
 
 h1
