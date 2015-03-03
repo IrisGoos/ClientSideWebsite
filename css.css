@@ -72,7 +72,7 @@ h1
 }
 
 h2
-{   color: #BBBBFF;
+{   color: #BBCCEE;
     font-size: 32px;
 }
 
@@ -129,19 +129,19 @@ content.ul{
 
 a{
     color: #222222;
-    text-decoration-line: none;
 }
 
 a:hover{
     color: #0066CC;
-    text-decoration-line: underline;
-    text-decoration-line: overline;    
 }
 
 
 a:visited{
     color: #777777;
-    text-decoration-line: underline;
+}
+
+a:visited:hover{
+    color: #0066CC;
 }
 
 p.code{
@@ -149,6 +149,13 @@ p.code{
     margin-left: 50px;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+a.bronnen{
+    font-size: 10px;
+    color: #333333;
+    font-style: italic;
+    vertical-align: super;
 }
 
 #ButtonBox{
@@ -164,4 +171,9 @@ p.code{
 ul.tree{
     padding: 10px;
     margin: 10px;
+}
+
+#draggable{
+    background-color: #BBCCEE;
+    width: 35%;
 }

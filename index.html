@@ -12,10 +12,15 @@ and open the template in the editor.
         <script type="text/javascript" src="newjavascript.js"></script> 
         <link type="text/css" rel="stylesheet" href="css.css">
         <script src="jquery-2.1.3.js"></script>
+        <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
         <script>
             $(function(){
-            $("#IncludedContent").load("base.html");
-        });</script>
+                $("#IncludedContent").load("base.html");
+            });
+            $(function() {
+                $( "#draggable" ).draggable();
+            });
+        </script>
     </head>
     
     <body>
@@ -27,7 +32,9 @@ and open the template in the editor.
                 Aanvullend voor de app hebben we een website gemaakt. Daarom leek het ons interessant onderzoek te doen naar zowel HTML5 als native apps.</p>
             <p>De website is ingedeeld in een aantal pagina&rsquo;s. Op sommige pagina&rsquo;s is een inhoudsopgave te vinden. We zullen hier kort een overzicht geven van de hoofdstukken met de bijbehorende paragrafen.</p>
             
-            <ul class='tree'>
+            <div id="draggable" class="tree">
+                <h4>Draggable Table Of Contents</h4>
+            <ul>
                 <li><a href='index.html'>Home</a></li>
                 <li><a href='HTML.html'>HTML5</a>
                 <ol>
@@ -55,6 +62,7 @@ and open the template in the editor.
                 <li><a href='Graph.html'>Gebruik van apps</a></li>
                 <li><a href='Flickr.html'>Flickr</a></li>
             </ul>
+            </div>
         </div>        
     </body>
 </html>
