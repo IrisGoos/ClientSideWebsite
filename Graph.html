@@ -21,7 +21,7 @@ and open the template in the editor.
         <script>
         var nativeColor = "#FF0D00";
         var webColor = "#007CFF";
-        var dataKind = "dataSetOverview";
+        var dataKind = "dataSetDetails";
         var data2013 = [[1,32],[1,18],[1,8],[1,8],[1,6],[1,2],[1,2],[1,6],[2,12],[2,4],[2,2]];
         var data2014 = [[1,32],[1,17],[1,1.5],[1,9.5],[1,4],[1,4],[1,8],[1,4],[1,3],[1,3],[2,7],[2,5],[2,2]];
         function sumData(data, a){
@@ -35,11 +35,11 @@ and open the template in the editor.
         }
         var dataSet2013Overview = [
             { label: "Native Apps", data: sumData(data2013, 1), color: nativeColor },
-            { label: "Webbrowsers", data: sumData(data2013, 2), color: webColor },
+            { label: "Webbrowsers", data: sumData(data2013, 2), color: webColor }
         ];
         var dataSet2014Overview = [
             { label: "Native Apps", data: sumData(data2014, 1), color: nativeColor },
-            { label: "Webbrowsers", data: sumData(data2014, 2), color: webColor },
+            { label: "Webbrowsers", data: sumData(data2014, 2), color: webColor }
         ];
         var dataSet2013Details = [
             { label: "Games", data: data2013[0][1], color: nativeColor },
@@ -93,21 +93,8 @@ and open the template in the editor.
         };
         
         $(document).ready(function () {
-            $.plot($("#Graph2013"), dataSet2013Overview, options);
-            $.plot($("#Graph2014"), dataSet2014Overview, options);
-            $('#Button').click(function() {
-                if(dataKind==="dataSetOverview"){
-                    $.plot($("#Graph2013"), dataSet2013Details, options);
-                    $.plot($("#Graph2014"), dataSet2014Details, options);
-                    dataKind = "dataSetDetails";
-                    $("#Button").prop('value', 'Gegroepeerd');
-                } else {
-                    $.plot($("#Graph2013"), dataSet2013Overview, options);
-                    $.plot($("#Graph2014"), dataSet2014Overview, options);
-                    dataKind = "dataSetOverview";
-                    $("#Button").prop('value', 'Details');
-                }
-            });
+            $.plot($("#Graph2013"), dataSet2013Details, options);
+            $.plot($("#Graph2014"), dataSet2014Details, options);
         });
         </script>
     </head>
@@ -120,15 +107,12 @@ and open the template in the editor.
         </div>
             <div id="Graph2013" style="width:60vh;height:60vh;float:left"></div>
             <div id="Graph2014" style="width:60vh;height:60vh;float:right"></div>
-            <div id="ButtonBox"><input id="Button" type="button" class="button" value="Details"/></div>
             <div id="GraphText"><p>Bovenstaande cirkeldiagrammen geven weer welk aandeel native apps en webapplicaties hadden in het mobiele applicatiegebruik van mensen in de VS.
-            Het linkerdiagram bevat data uit 2013, het rechterdiagram uit 2014. Zoals men kan zien is het aandeel van webbrowsers, en dus ook webapplicates, nog
+            Het linkerdiagram bevat data uit 2013, het rechterdiagram uit 2014. Het rode gedeelte staat voor native applicaties, het blauwe gedeelte voor webbrowsers, waarmee webapplicaties geopend kunnen worden.
+            Zoals men kan zien is het aandeel van webbrowsers, en dus ook webapplicates, nog
             erg beperkt in het mobiele landschap. Het aandeel van webapplicaties is zelfs gekrompen in 2014. Aangezien browsers ook worden gebruikt om
             &lsquo;gewone&rsquo;, niet voor mobiele apparaten, ontworpen websites te bereiken, is het aandeel van webapplicaties nog kleiner dan die van browsers in het
-            algemeen.<br><br>
-            Door op de knop &lsquo;details&rsquo; te drukken kan
-            men meer in detail zien hoe de appmarkt is opgedeeld. Native applicaties zijn onderverdeeld in specifieke, grote apps en algemene categorieën.
-            Voor de webbrowsers is te zien hoeveel de grootste browsers worden gebruikt in de VS.</p>
+            algemeen.</p>
             <h4>Bronnen:</h4>
             <p><a href="http://www.flurry.com/bid/95723/Flurry-Five-Year-Report-It-s-an-App-World-The-Web-Just-Lives-in-It#.VPSJR_mG_Ll">Khalaf, S. 2013</a><br>
             <a href="http://www.flurry.com/bid/109749/Apps-Solidify-Leadership-Six-Years-into-the-Mobile-Revolution#.VPSS8vmG_Ll">Khalaf, S. 2014</a></p>

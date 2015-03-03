@@ -9,3 +9,6 @@ Browsers waarin de site werkend bevonden is:
 -Mozilla Firefox 36.0 (Windows 8.1)
 -Internet Explorer 11.0.9600.17631 (Windows 8.1)
 -Apple Safari 8.0.3 (OS X)
+
+Extra:
+- De inhoudsopgave 'boom' op de index pagina is draggable.

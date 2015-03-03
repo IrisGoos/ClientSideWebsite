@@ -106,6 +106,7 @@ input.button{
     font-family: Verdana;
     padding: 10px;
     font-weight: bold;
+    z-index: 0;
 }
 input.button:hover{
     background-color: #BBCCEE;
@@ -168,12 +169,17 @@ a.bronnen{
     width: 100%;
 }
 
-ul.tree{
-    padding: 10px;
-    margin: 10px;
-}
-
 #draggable{
     background-color: #BBCCEE;
     width: 35%;
+}
+
+#Graph2013
+{
+    z-index: 0;
+}
+
+#Graph2014
+{
+    z-index: 0;
 }
